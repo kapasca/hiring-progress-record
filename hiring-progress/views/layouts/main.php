@@ -78,6 +78,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </footer>
 
 <?php $this->endBody() ?>
+
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

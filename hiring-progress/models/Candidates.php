@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "candidates".
@@ -27,6 +29,14 @@ class Candidates extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'candidates';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+            BlameableBehavior::class,
+        ];
     }
 
     /**
@@ -68,5 +78,4 @@ class Candidates extends \yii\db\ActiveRecord
     {
         return $this->hasMany(JobApplications::class, ['candidate_id' => 'id']);
     }
-
 }

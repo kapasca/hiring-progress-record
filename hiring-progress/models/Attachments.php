@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "attachments".
@@ -25,6 +27,14 @@ class Attachments extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'attachments';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+            BlameableBehavior::class,
+        ];
     }
 
     /**
@@ -56,5 +66,4 @@ class Attachments extends \yii\db\ActiveRecord
             'uploaded_by' => 'Uploaded By',
         ];
     }
-
 }
